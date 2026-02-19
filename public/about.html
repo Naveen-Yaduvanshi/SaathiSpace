@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About |Saathi Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<!-- Header -->
+ <header>
+    <div class="container">
+        <nav>
+            <!-- Logo -->
+            <img class="logo" src="SaathiSpace.png" alt="">
+
+            <!-- Right side -->
+            <div class="nav-right">
+                <button id="openAuth">Login</button>
+
+                <div id="userArea">
+                    <div id="userAvatar" class="avatar"></div>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+
+            <!-- Hamburger icon -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Navigation links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chat.html">Anonymous Chat</a></li>
+                <li><a href="selfhelp.html">Self Help</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<hr>
+    <!-- Hero -->
+    <section class="hero">
+        <h2>About Saathi Space</h2>
+        <p>A safe space where no one has to feel alone.</p>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section">
+        <h3>Our Mission</h3>
+        <p>
+            Saathi Space is a mental health support platform designed to help
+            people who feel lonely, anxious, or emotionally overwhelmed.
+            Our goal is to create a safe and anonymous space where people
+            can talk to someone who understands their feelings.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h3>Why This Platform Exists</h3>
+        <p>
+            Many people struggle silently because they have no one to talk to.
+            Saathi Space was created to give people a place where they can
+            connect with others going through similar emotions.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h3>What We Offer</h3>
+        <ul>
+            <li>Anonymous peer-to-peer chat</li>
+            <li>Self-help tools and exercises</li>
+            <li>Mental health resources</li>
+            <li>A supportive, non-judgmental space</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h3>Important Note</h3>
+        <p>
+            Saathi Space is not a medical or professional mental health service.
+            It is a peer support platform. If you are in crisis or need
+            professional help, please contact a mental health professional
+            or a local helpline.
+        </p>
+    </section>
+ <!-- Footer -->
+     <footer>
+    <div class="container footer-content">
+
+        <!-- Social icons -->
+        <div class="social-icons">
+    <a href="https://wa.me/918307890906" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" title="Twitter" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/saathispace/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+
+
+        <!-- Footer links -->
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 Saathi Space. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- Auth Popup -->
+<div class="auth-overlay" id="authOverlay">
+    <div class="auth-box">
+        <span class="close-btn" id="closeAuth">&times;</span>
+
+        <h2 id="formTitle">Welcome</h2>
+        
+
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button type="submit" id="submitBtn">Login</button>
+        </form>
+
+        <p class="switch-text">
+            <span id="toggleText">Don’t have an account?</span>
+            <span id="switchMode">Sign up</span>
+        </p>
+    </div>
+</div>
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="home.js"></script>
+
+
+     <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav-links a");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+});
+
+/* Close menu when link clicked */
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+    });
+});
+</script>
+</body>
+</html>

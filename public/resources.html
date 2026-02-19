@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources |Saathi Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+   <header>
+    <div class="container">
+        <nav>
+            <!-- Logo -->
+            <img class="logo" src="SaathiSpace.png" alt="">
+             <!-- Right side -->
+            <div class="nav-right">
+                <button id="openAuth">Login</button>
+
+                <div id="userArea" >
+                    <div id="userAvatar" class="avatar"></div>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+
+
+            <!-- Hamburger icon -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Navigation links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chat.html">Anonymous Chat</a></li>
+                <li><a href="selfhelp.html">Self Help</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<hr>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <h2>Mental Health Resources</h2>
+        <p>Helpful information and simple guidance for different challenges.</p>
+    </section>
+
+    <!-- Resource Cards -->
+    <section class="resources-container">
+
+        <div class="resource-card">
+            <h3>Depression</h3>
+            <p>
+                Depression can cause low mood, lack of energy, and loss of interest.
+                Small steps like sunlight, movement, and talking to someone can help.
+            </p>
+            <ul>
+                <li>Go outside for 10–15 minutes daily</li>
+                <li>Maintain a simple routine</li>
+                <li>Write your feelings in a journal</li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h3>Anxiety</h3>
+            <p>
+                Anxiety causes racing thoughts, tension, and worry.
+                Breathing and grounding exercises can calm the body.
+            </p>
+            <ul>
+                <li>Practice 4-4-4 breathing</li>
+                <li>Use the 5-4-3-2-1 grounding technique</li>
+                <li>Limit caffeine</li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h3>Loneliness</h3>
+            <p>
+                Loneliness happens when we feel emotionally disconnected.
+                Small social actions can slowly reduce this feeling.
+            </p>
+            <ul>
+                <li>Talk to one person daily</li>
+                <li>Join online communities</li>
+                <li>Spend time in public spaces</li>
+            </ul>
+        </div>
+
+        <div class="resource-card">
+            <h3>Panic Attacks</h3>
+            <p>
+                Panic attacks feel intense but usually pass within minutes.
+                Slow breathing helps the nervous system calm down.
+            </p>
+            <ul>
+                <li>Focus on slow breathing</li>
+                <li>Remind yourself: “This will pass”</li>
+                <li>Sit in a safe, quiet place</li>
+            </ul>
+        </div>
+
+        <div class="resource-card highlight">
+            <h3>Professional Help</h3>
+            <p>
+                If your feelings are overwhelming or long-lasting, consider talking
+                to a mental health professional.
+            </p>
+            <ul>
+                <li>Psychologists</li>
+                <li>Psychiatrists</li>
+                <li>Counselors</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Crisis Helpline Section -->
+<section class="crisis-support">
+    <div class="container">
+        <h2>If You Are in Immediate Distress</h2>
+        <p>
+            If you are feeling overwhelmed or having thoughts of harming yourself,
+            please reach out to a trusted person or contact a helpline below.
+            You are not alone.
+        </p>
+
+        <div class="helpline-list">
+            <div class="helpline-card">
+                <h3>Kiran Mental Health Helpline</h3>
+                <p>24/7 Government of India helpline</p>
+                <a href="tel:18005990019" class="helpline-btn">Call: 1800-599-0019</a>
+            </div>
+
+            <div class="helpline-card">
+                <h3>AASRA</h3>
+                <p>24/7 Suicide prevention support</p>
+                <a href="tel:9820466726" class="helpline-btn">Call: 9820466726</a>
+            </div>
+
+            <div class="helpline-card">
+                <h3>Vandrevala Foundation</h3>
+                <p>24/7 mental health support</p>
+                <a href="tel:9999666555" class="helpline-btn">Call: 9999666555</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+     <footer>
+    <div class="container footer-content">
+
+        <!-- Social icons -->
+        <div class="social-icons">
+    <a href="https://wa.me/918307890906" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" title="Twitter" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/saathispace/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+
+
+        <!-- Footer links -->
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 Saathi Space. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+
+
+<!-- Auth Popup -->
+<div class="auth-overlay" id="authOverlay">
+    <div class="auth-box">
+        <span class="close-btn" id="closeAuth">&times;</span>
+
+        <h2 id="formTitle">Welcome</h2>
+        
+
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button type="submit" id="submitBtn">Login</button>
+        </form>
+
+        <p class="switch-text">
+            <span id="toggleText">Don’t have an account?</span>
+            <span id="switchMode">Sign up</span>
+        </p>
+    </div>
+</div>
+
+
+<script type="module" src="auth.js"></script>
+<script type="module" src="home.js"></script>
+
+     <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav-links a");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+});
+
+/* Close menu when link clicked */
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+    });
+});
+</script>
+</body>
+</html>

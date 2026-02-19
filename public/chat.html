@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saathi Anonymous Chat</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <nav>
+            <!-- Logo -->
+            <!-- <h1 class="logo">Saathi Space</h1> -->
+            <img class="logo" src="SaathiSpace.png" alt="">
+            <!-- Right side -->
+            <div class="nav-right">
+                <button id="openAuth">Login</button>
+
+                <div id="userArea">
+                    <div id="userAvatar" class="avatar"></div>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+
+                <!-- Hamburger -->
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Nav links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chat.html">Anonymous Chat</a></li>
+                <li><a href="selfhelp.html">Self Help</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<hr>
+<div class="chat-wrapper">
+<div class="chat-container">
+    <div class="chat-header">
+    <h2>Anonymous Chat</h2>
+    <p id="status">Connecting...</p>
+</div>
+
+    <div id="chatBox" class="chat-box"></div>
+
+    <div class="chat-input">
+        <input id="messageInput" type="text" placeholder="Type message...">
+        <button id="sendBtn">Send</button>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+     <footer>
+    <div class="container footer-content">
+
+        <!-- Social icons -->
+        <div class="social-icons">
+    <a href="https://wa.me/918307890906" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" title="Twitter" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" title="LinkedIn" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.instagram.com/saathispace/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+
+
+        <!-- Footer links -->
+        <div class="footer-links">
+            <a href="#">About</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 Saathi Space. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- Login Popup -->
+
+<!-- Auth Popup -->
+<div class="auth-overlay" id="authOverlay">
+    <div class="auth-box">
+        <span class="close-btn" id="closeAuth">&times;</span>
+
+        <h2 id="formTitle">Welcome</h2>
+        
+
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button type="submit" id="submitBtn">Login</button>
+        </form>
+
+        <p class="switch-text">
+            <span id="toggleText">Don’t have an account?</span>
+            <span id="switchMode">Sign up</span>
+        </p>
+    </div>
+</div>
+
+
+
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const navItems = document.querySelectorAll(".nav-links a");
+
+menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+});
+
+/* Close menu when link clicked */
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+    });
+});
+
+</script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="home.js"></script>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="chat.js"></script>
+
+</body>
+</html>
