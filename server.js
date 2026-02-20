@@ -2,32 +2,32 @@ const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 const admin = require("firebase-admin");
-
 require("dotenv").config();
 
+const app = express();
+const server = http.createServer(app);
 
+// Firebase initialize
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.FIREBASE_PROJECT_ID,
     clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-  })
+    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  }),
 });
 
 const db = admin.firestore();
 
-
 // Socket.IO with CORS
 const io = new Server(server, {
   cors: {
-    origin: "*",  // Cloudflare frontend se allow
-    methods: ["GET", "POST"]
-  }
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
 });
 
 app.use(express.static("public"));
 
-// Chat logic
 let waitingUser = null;
 
 io.on("connection", (socket) => {
@@ -47,17 +47,15 @@ io.on("connection", (socket) => {
   }
 
   socket.on("chat message", async (msg) => {
-    // Forward to partner
     if (socket.partner) {
       socket.partner.emit("chat message", msg);
     }
 
-    // Save message in Firestore
     try {
       await db.collection("chats").add({
         message: msg,
         sender: socket.id,
-        timestamp: admin.firestore.FieldValue.serverTimestamp()
+        timestamp: admin.firestore.FieldValue.serverTimestamp(),
       });
     } catch (err) {
       console.error("Firestore write error:", err);
@@ -73,6 +71,5 @@ io.on("connection", (socket) => {
   });
 });
 
-// Railway free tier port
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
