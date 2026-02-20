@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io(saathispace-production.up.railway.app);
 
 const chatBox = document.getElementById("chatBox");
 const input = document.getElementById("messageInput");
