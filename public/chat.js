@@ -1,31 +1,52 @@
-const socket = io("https://saathispace-production.up.railway.app");
-
+// DOM Elements
 const chatBox = document.getElementById("chatBox");
-const input = document.getElementById("messageInput");
+const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 const status = document.getElementById("status");
 
-function addMessage(text, type) {
-    const div = document.createElement("div");
-    div.classList.add("message", type);
-    div.textContent = text;
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+// Update status when user logs in/out
+auth.onAuthStateChanged(user => {
+    if (user) {
+        if (status) status.textContent = `Connected as ${user.displayName || user.email}`;
+    } else {
+        if (status) status.textContent = "Please login to chat";
+    }
+});
 
-sendBtn.onclick = () => {
-    const msg = input.value.trim();
+// Send message to Firestore
+sendBtn.addEventListener("click", () => {
+    const msg = messageInput.value.trim();
     if (!msg) return;
 
-    socket.emit("chat message", msg);
-    addMessage(msg, "sent");
-    input.value = "";
-};
+    const user = auth.currentUser;
+    if (!user) {
+        alert("Login first to send messages!");
+        return;
+    }
 
-socket.on("chat message", (msg) => {
-    addMessage(msg, "received");
+    db.collection("messages").add({
+        text: msg,
+        userName: user.displayName || user.email,
+        userId: user.uid,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+        messageInput.value = "";
+    }).catch(err => {
+        console.error("Error sending message:", err);
+    });
 });
 
-socket.on("status", (msg) => {
-    if (status) status.textContent = msg;
-});
+// Display messages in real-time
+db.collection("messages")
+  .orderBy("timestamp")
+  .onSnapshot(snapshot => {
+      chatBox.innerHTML = ""; // clear chat
+      snapshot.forEach(doc => {
+          const data = doc.data();
+          const div = document.createElement("div");
+          div.classList.add("message");
+          div.innerHTML = `<strong>${data.userName}:</strong> ${data.text}`;
+          chatBox.appendChild(div);
+      });
+      chatBox.scrollTop = chatBox.scrollHeight; // scroll to bottom
+  });

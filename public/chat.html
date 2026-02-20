@@ -142,6 +142,30 @@ navItems.forEach(item => {
 });
 
 </script>
+
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDlxxezRlr0cLXa_IlR78TBAn1Uxk9H9Hg",
+    authDomain: "saathi-space.firebaseapp.com",
+    projectId: "saathi-space",
+    storageBucket: "saathi-space.firebasestorage.app",
+    messagingSenderId: "47829329740",
+    appId: "1:47829329740:web:f049c1bd8d316f2e8a91e9"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+
 <script type="module" src="auth.js"></script>
 <script type="module" src="home.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.7.5/dist/socket.io.min.js"></script>
